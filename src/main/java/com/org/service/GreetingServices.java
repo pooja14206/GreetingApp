@@ -6,7 +6,7 @@ import com.org.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Properties;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Service
@@ -39,4 +39,11 @@ public class GreetingServices  implements IGreetingService{
     public Greeting getGreetingById(Long id) {
        return greetingRepository.findById(id).get();
         }
+
+    @Override
+    public List<Greeting> getAllGreetings() {
+        return greetingRepository.findAll();
+        }
+
+
 }

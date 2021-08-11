@@ -1,6 +1,8 @@
 /*
-  * UC4: Ability for the Greeting App to save the Greeting Message in the Repository
-  * UC5: Ability for the Greeting App to find a Greeting Message by Id in the Repository
+  * UC4: Ability for the Greeting App to save the Greeting Message in the Repository.
+  * UC5: Ability for the Greeting App to find a Greeting Message by Id in the Repository.
+  * UC6: Ability for the Greeting App to List all the Greeting Messages in the Repository.
+  *
  */
 package com.org.controller;
 
@@ -10,6 +12,7 @@ import com.org.service.IGreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -42,5 +45,15 @@ public class GreetingControllerWithDB {
     @GetMapping("/greeting/{id}")
     public Greeting getById(@PathVariable Long id){
         return greetingService.getGreetingById(id);
+    }
+
+    /*
+     * Ability to get  All greeting message in list using GET method from the Database
+     * Execution URL : curl -X GET http://localhost:8080/greeting/greetings -w "\n"
+     * @return
+     */
+    @GetMapping("/greetings")
+    public List<Greeting> getAllGreetings(){
+        return greetingService.getAllGreetings();
     }
 }
