@@ -1,3 +1,6 @@
+/*
+ * UC1 : Using GreetingController return JSON for different HTTP Methods. Test using curl
+ */
 package com.org;
 
 import org.springframework.boot.SpringApplication;
@@ -10,5 +13,4 @@ public class GreetingAppApplication {
 		SpringApplication.run(GreetingAppApplication.class, args);
 		System.out.println("Welcome To Greeting App");
 	}
-
 }
