@@ -34,7 +34,6 @@ public class HelloGreetingController {
     public ResponseEntity<String> getHelloMessage() {
         return new ResponseEntity<>(greetingService.getMessage(), HttpStatus.OK);
     }
-    //....................................UC3.................................
     /*
      * Purpose : Ability to return message using GET method from the service class
      * @param firstName
@@ -46,9 +45,9 @@ public class HelloGreetingController {
      * @return
      */
 
-//    @GetMapping(value = "greeting/getMessage")
-//    public ResponseEntity<String> greeting(@RequestParam(value = "firstName", defaultValue = "Hello World") String firstName,
-//                                           @RequestParam(value = "lastName", defaultValue = "") String lastName) {
-//        return new ResponseEntity<>(greetingService.getGreeting(firstName, lastName), HttpStatus.OK);
-//    }
+    @GetMapping(value = "greeting/getMessage")
+    public ResponseEntity<String> greeting(@RequestParam(value = "firstName", defaultValue = "Hello World") String firstName,
+                                           @RequestParam(value = "lastName", defaultValue = "") String lastName) {
+        return new ResponseEntity<>(greetingService.getGreeting(firstName, lastName), HttpStatus.OK);
+    }
 }

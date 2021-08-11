@@ -24,9 +24,9 @@ public class GreetingServices  implements IGreetingService{
         return "Hello World";
     }
 
-//    public String getGreeting(String firstName, String lastName) {
-//        return String.format(firstName, lastName);
-//    }
+    public String getGreeting(String firstName, String lastName) {
+        return String.format(firstName, lastName);
+    }
 
 
     @Override
@@ -36,7 +36,7 @@ public class GreetingServices  implements IGreetingService{
     }
 
     @Override
-    public Greeting getGreeting(long id) {
-        return null;
-    }
+    public Greeting getGreetingById(Long id) {
+       return greetingRepository.findById(id).get();
+        }
 }

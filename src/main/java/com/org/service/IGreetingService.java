@@ -5,5 +5,5 @@ import com.org.model.User;
 
 public interface IGreetingService {
     Greeting addGreeting(User user);
-    Greeting getGreeting(long id);
+    Greeting getGreetingById(Long id);
 }
