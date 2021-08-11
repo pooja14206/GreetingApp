@@ -58,6 +58,16 @@ public class GreetingControllerWithDB {
     }
 
     /*
+     * Ability to update greeting message from list using UPDATE method from the Database
+     * Execution URL :
+     * @return
+     */
+    @PutMapping("/greeting/{id}")
+    public Greeting updateById(@PathVariable Long id, @RequestBody User user){
+        return greetingService.updateGreeting(id,user);
+    }
+
+    /*
      * Ability to delete greeting message from list using DELETE method from the Database
      * Execution URL : curl -X DELETE http://localhost:8080/greeting/2 -w "\n"
      * @return

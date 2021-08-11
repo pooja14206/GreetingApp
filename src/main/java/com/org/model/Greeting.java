@@ -13,7 +13,7 @@ public class Greeting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private final long id;
-    private final String message;
+    private String message;
 
     public Greeting(){
         id = 0;
@@ -21,6 +21,10 @@ public class Greeting {
     }
     public Greeting(long id, String message) {
         this.id = id;
+        this.message = message;
+    }
+
+    public void setMessage(String message) {
         this.message = message;
     }
 }

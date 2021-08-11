@@ -46,6 +46,16 @@ public class GreetingServices  implements IGreetingService{
         }
 
     @Override
+    public Greeting updateGreeting(long id,User user) {
+        String message = String.format(template,user.toString());
+        return greetingRepository.findById(id).
+                map(greeting -> {
+                    greeting.setMessage(message);
+                    return this.greetingRepository.save(greeting);
+                    }).get();
+    }
+
+    @Override
     public Greeting deleteGreeting(Long id) {
         return greetingRepository.findById(id).map(greeting -> {
                     this.greetingRepository.deleteById(id);
