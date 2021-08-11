@@ -2,7 +2,7 @@
   * UC4: Ability for the Greeting App to save the Greeting Message in the Repository.
   * UC5: Ability for the Greeting App to find a Greeting Message by Id in the Repository.
   * UC6: Ability for the Greeting App to List all the Greeting Messages in the Repository.
-  *
+  * UC8: Ability for the Greeting App to delete a Greeting Messages in the Repository
  */
 package com.org.controller;
 
@@ -55,5 +55,15 @@ public class GreetingControllerWithDB {
     @GetMapping("/greetings")
     public List<Greeting> getAllGreetings(){
         return greetingService.getAllGreetings();
+    }
+
+    /*
+     * Ability to delete greeting message from list using DELETE method from the Database
+     * Execution URL : curl -X DELETE http://localhost:8080/greeting/2 -w "\n"
+     * @return
+     */
+    @DeleteMapping("/{id}")
+    public Greeting deleteById(@PathVariable Long id){
+        return greetingService.deleteGreeting(id);
     }
 }
